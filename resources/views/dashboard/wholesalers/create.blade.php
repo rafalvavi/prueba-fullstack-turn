@@ -110,9 +110,11 @@
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Ciudad</label>
-                                <select class="form-select" name="City" v-model="addressData.city" @change="searchColonyByTown()">
-                                    <option value="0" selected>Selecciona la ciudad</option>
-                                    <option v-for="town in addressData.towns" :value="town.CMunicipio">@{{ town.Descripcion }}</option>
+                                <select class="form-select" name="City" v-model="addressData.city"
+                                    @change="searchColonyByTown()">
+                                    <option value="" selected>Selecciona la ciudad</option>
+                                    <option v-for="town in addressData.towns" :value="town.CMunicipio">
+                                        @{{ town.Descripcion }}</option>
                                 </select>
                             </div>
                             <div class="mb-3">
@@ -133,24 +135,25 @@
                                     placeholder="Ingresa la dirección" v-model="addressData.address">
                             </div>
                             <div class="mb-3">
-                              <label class="form-label">Estado</label>
-                              <select class="form-select" name="State" v-model="addressData.state" v-bind="addressData.state" @change="searchTownByState()">
-                                <option value="0" selected>Selecciona el estado</option>
-                                @foreach ($states as $state)
-                                <option value="{{ $state->CEstado }}">{{ $state->NombreEstado }}</option>
-                                @endforeach
-                              </select>
+                                <label class="form-label">Estado</label>
+                                <select class="form-select" name="State" v-model="addressData.state"
+                                    v-bind="addressData.state" @change="searchTownByState()">
+                                    <option value="" selected>Selecciona el estado</option>
+                                    @foreach ($states as $state)
+                                        <option value="{{ $state->CEstado }}">{{ $state->NombreEstado }}</option>
+                                    @endforeach
+                                </select>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Colonia</label>
                                 <select class="form-select" name="Neighborhood" v-model="addressData.neighborhood">
-                                    <option value="0" selected>Selecciona la colonia</option>
-                                    <option v-for="neighborhood in addressData.neighborhoods" :value="neighborhood.CColonia">@{{ neighborhood.CNombreAsentamiento }}</option>
+                                    <option value="" selected>Selecciona la colonia</option>
+                                    <option v-for="neighborhood in addressData.neighborhoods"
+                                        :value="neighborhood.CColonia">@{{ neighborhood.CNombreAsentamiento }}</option>
                                 </select>
                             </div>
                             <div class="mb-3">
-                                <label for="address_phone" class="form-label">Teléfono <span
-                                        class="text-danger">*</span></label>
+                                <label for="address_phone" class="form-label">Teléfono</label>
                                 <input type="text" class="form-control" id="address_phone" name="address_phone"
                                     placeholder="333-333-3333" v-model="addressData.phone">
                             </div>
@@ -166,7 +169,8 @@
                         </div>
                         <div class="col">
                             <h5 class="card-title float-end">
-                                <input class="form-check-input" type="checkbox" name="user_address" @click="getAddressData($event)">
+                                <input class="form-check-input" type="checkbox" name="user_address"
+                                    @click="getAddressData($event)">
                                 Usar dirección de envío
                             </h5>
                         </div>
@@ -192,9 +196,11 @@
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Ciudad</label>
-                                <select class="form-select" name="billing_City" v-model="billingData.city" @change="searchColonyByTown(true)">
-                                    <option value="0" selected>Selecciona la ciudad</option>
-                                    <option v-for="town in billingData.towns" :value="town.CMunicipio">@{{ town.Descripcion }}</option>
+                                <select class="form-select" name="billing_City" v-model="billingData.city"
+                                    @change="searchColonyByTown(true)">
+                                    <option value="" selected>Selecciona la ciudad</option>
+                                    <option v-for="town in billingData.towns" :value="town.CMunicipio">
+                                        @{{ town.Descripcion }}</option>
                                 </select>
                             </div>
                             <div class="mb-3">
@@ -218,24 +224,25 @@
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Estado</label>
-                                <select class="form-select" name="billing_State" v-model="billingData.state" @change="searchTownByState(true)">
-                                    <option value="0" selected>Selecciona el estado</option>
+                                <select class="form-select" name="billing_State" v-model="billingData.state"
+                                    @change="searchTownByState(true)">
+                                    <option value="" selected>Selecciona el estado</option>
                                     @foreach ($states as $state)
-                                <option value="{{ $state->CEstado }}">{{ $state->NombreEstado }}</option>
-                                @endforeach
+                                        <option value="{{ $state->CEstado }}">{{ $state->NombreEstado }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Colonia</label>
                                 <select class="form-select" name="billing_Neighborhood"
                                     v-model="billingData.neighborhood">
-                                    <option value="0" selected>Selecciona la colonia</option>
-                                    <option v-for="neighborhood in billingData.neighborhoods" :value="neighborhood.CColonia">@{{ neighborhood.CNombreAsentamiento }}</option>
+                                    <option value="" selected>Selecciona la colonia</option>
+                                    <option v-for="neighborhood in billingData.neighborhoods"
+                                        :value="neighborhood.CColonia">@{{ neighborhood.CNombreAsentamiento }}</option>
                                 </select>
                             </div>
                             <div class="mb-3">
-                                <label for="billing_address_phone" class="form-label">Teléfono <span
-                                        class="text-danger">*</span></label>
+                                <label for="billing_address_phone" class="form-label">Teléfono</label>
                                 <input type="text" class="form-control" id="billing_address_phone"
                                     name="billing_address_phone" placeholder="333-333-3333"
                                     v-model="billingData.phone">
@@ -290,11 +297,11 @@
                         addressData: {
                             name: '{{ old('ContactName') }}',
                             postalCode: '{{ old('PostalCode') }}',
-                            city: 0,
+                            city: '',
                             email: '{{ old('address_email') }}',
                             address: '{{ old('Address') }}',
-                            neighborhood: 0,
-                            state: 0,
+                            neighborhood: '',
+                            state: '',
                             phone: '{{ old('address_phone') }}',
                             towns: [],
                             neighborhoods: []
@@ -302,17 +309,17 @@
                         billingData: {
                             name: '{{ old('billing_ContactName') }}',
                             postalCode: '{{ old('billing_PostalCode') }}',
-                            city: 0,
+                            city: '',
                             email: '{{ old('billing_address_email') }}',
                             address: '{{ old('billing_Address') }}',
-                            neighborhood: 0,
-                            state: 0,
+                            neighborhood: '',
+                            state: '',
                             phone: '{{ old('billing_address_phone') }}',
                             towns: [],
                             neighborhoods: []
                         },
                         postalCodeData: {
-                          CEstado: ''
+                            CEstado: ''
                         },
                         towns: [],
                         neighborhoods: []
@@ -335,64 +342,67 @@
                         console.log(this.billingData);
                     },
                     searchPostalCode(billing = false) {
-                        fetch("{{ route('searchPostalCode', '') }}/" + (billing ? this.billingData.postalCode : this.addressData.postalCode))
+                        fetch("{{ route('searchPostalCode', '') }}/" + (billing ? this.billingData.postalCode : this
+                                .addressData.postalCode))
                             .then(response => response.json())
                             .then(data => {
-                              if (billing) {
-                                this.billingData.state = data.CEstado;
-                                this.searchTownByState(true);
-                                this.billingData.city = data.CMunicipio;
-                                this.searchColonyByTown(true);
-                                this.searchColonyByPostalCode(true);
-                              }else{
-                                this.addressData.state = data.CEstado;
-                                this.searchTownByState();
-                                this.addressData.city = data.CMunicipio;
-                                this.searchColonyByTown();
-                                this.searchColonyByPostalCode();
-                              }
-                              console.log(data);
+                                if (billing) {
+                                    this.billingData.state = data.CEstado;
+                                    this.searchTownByState(true);
+                                    this.billingData.city = data.CMunicipio;
+                                    this.searchColonyByTown(true);
+                                    this.searchColonyByPostalCode(true);
+                                } else {
+                                    this.addressData.state = data.CEstado;
+                                    this.searchTownByState();
+                                    this.addressData.city = data.CMunicipio;
+                                    this.searchColonyByTown();
+                                    this.searchColonyByPostalCode();
+                                }
+                                console.log(data);
                             });
 
-                            // this.searchTownByState();
+                        // this.searchTownByState();
                     },
                     searchTownByState(billing = false) {
-                      if (billing) {
-                        fetch("{{ route('searchTownByState', '') }}/" + this.billingData.state)
-                            .then(response => response.json())
-                            .then(data => this.billingData.towns = data);
-                      }else{
-                        fetch("{{ route('searchTownByState', '') }}/" + this.addressData.state)
-                            .then(response => response.json())
-                            .then(data => this.addressData.towns = data);
-                      }
+                        if (billing) {
+                            fetch("{{ route('searchTownByState', '') }}/" + this.billingData.state)
+                                .then(response => response.json())
+                                .then(data => this.billingData.towns = data);
+                        } else {
+                            fetch("{{ route('searchTownByState', '') }}/" + this.addressData.state)
+                                .then(response => response.json())
+                                .then(data => this.addressData.towns = data);
+                        }
                     },
                     searchColonyByTown(billing = false) {
-                      console.log(this.addressData.state);
-                      if (billing) {
-                        fetch("{{ route('searchColonyByTown', ['', '']) }}/" + this.billingData.state + '/' + this.billingData.city)
-                            .then(response => response.json())
-                            .then(data => this.billingData.neighborhoods = data);
-                      }else{
-                        fetch("{{ route('searchColonyByTown', ['', '']) }}/" + this.addressData.state + '/' + this.addressData.city)
-                            .then(response => response.json())
-                            .then(data => this.addressData.neighborhoods = data);
-                      }
+                        console.log(this.addressData.state);
+                        if (billing) {
+                            fetch("{{ route('searchColonyByTown', ['', '']) }}/" + this.billingData.state + '/' + this
+                                    .billingData.city)
+                                .then(response => response.json())
+                                .then(data => this.billingData.neighborhoods = data);
+                        } else {
+                            fetch("{{ route('searchColonyByTown', ['', '']) }}/" + this.addressData.state + '/' + this
+                                    .addressData.city)
+                                .then(response => response.json())
+                                .then(data => this.addressData.neighborhoods = data);
+                        }
                     },
                     searchColonyByPostalCode(billing = false) {
-                      if (billing) {
-                        fetch("{{ route('searchColonyByPostalCode', '') }}/" + this.billingData.postalCode)
-                            .then(response => response.json())
-                            .then(data => {
-                              this.billingData.neighborhood = data.CColonia
-                            });
-                      }else{
-                        fetch("{{ route('searchColonyByPostalCode', '') }}/" + this.addressData.postalCode)
-                            .then(response => response.json())
-                            .then(data => {
-                              this.addressData.neighborhood = data.CColonia
-                            });
-                      }
+                        if (billing) {
+                            fetch("{{ route('searchColonyByPostalCode', '') }}/" + this.billingData.postalCode)
+                                .then(response => response.json())
+                                .then(data => {
+                                    this.billingData.neighborhood = data.CColonia
+                                });
+                        } else {
+                            fetch("{{ route('searchColonyByPostalCode', '') }}/" + this.addressData.postalCode)
+                                .then(response => response.json())
+                                .then(data => {
+                                    this.addressData.neighborhood = data.CColonia
+                                });
+                        }
                     }
                 }
             }).mount('#app')

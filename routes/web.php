@@ -20,6 +20,7 @@ Route::middleware('auth')->group(function () {
             return view('dashboard.index');
         })->name('index');
         Route::resource('mayoristas', UserController::class);
+        Route::resource('mayoristas', UserController::class);
         Route::get('search-postal-code/{postalCode}', function($postalCode) {
             $postalCode = App\Models\PostalCode::find($postalCode);
             // dd($postalCode);

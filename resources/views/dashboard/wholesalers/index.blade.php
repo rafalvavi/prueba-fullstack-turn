@@ -36,7 +36,7 @@
                         <th scope="col">No. Cotizaciones</th>
                         <th scope="col">No. Órdenes</th>
                         <th scope="col">No. Solicitudes</th>
-                        <th scope="col">Acciones</th>
+                        {{-- <th scope="col">Acciones</th> --}}
                     </tr>
                 </thead>
                 <tbody>
@@ -51,7 +51,7 @@
                         <td>0</td>
                         <td>0</td>
                         <td>0</td>
-                        <td></td>
+                        {{-- <td></td> --}}
                     </tr>
                   @endforeach
                 </tbody>

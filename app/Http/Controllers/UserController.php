@@ -36,6 +36,7 @@ class UserController extends Controller
     public function store(UserRequest $request)
     {
         $validated = $request->validated();
+        // dd($validated);
         $validated['FK_IdUser'] = auth()->user()->IdUser;
         $validated['Status'] = 0;
         $validated['Role'] = 'Mayorista';
@@ -69,7 +70,7 @@ class UserController extends Controller
             ]);
         }
 
-        return redirect()->route('mayoristas.index');
+        return redirect()->route('mayoristas.index')->with('success', 'Mayorista creado correctamente.');
     }
 
     public function show(User $user)
