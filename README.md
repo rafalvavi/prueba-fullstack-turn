@@ -10,7 +10,7 @@
 ## Instrucciones
 
 - Crear base de datos en mysql con el nombre de "examen1" y despues importar la base de datos que se encuenta en la carpeta <b>public</b>.
-- Configurar las variables de entorno en el archivo <b>.env</b>, sen este caso solo ocupamos las de conexion a base de datos.
+- Configurar las variables de entorno en el archivo <b>.env</b>, en este caso solo ocupamos las de conexion a base de datos.
 - Ejecutar el comando <b>php artisan serve</b> en la terminal desde la raiz del proyecto.
 - Ejecutar el comando <b>php artisan db:seed</b> en la terminal desde la raiz del proyecto, esto creara el usuario admin y llenara las tablas de <b>codigos_postales, estados, ciudades y colonias</b> desde las listas en las hojas de calculo proporcionadas.
 - Entramos en la siguiente url [http://localhost:8000/login](http://localhost:8000/dashboard/mayoristas/create) para ingresar con las credenciales <b>user:</b> admin@admin.com <b>password:</b> control.
